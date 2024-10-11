@@ -52,7 +52,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -98,7 +100,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"regionracks\"})",
           "legendFormat": "__auto",
@@ -110,7 +114,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -156,7 +162,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"regions\"})",
           "legendFormat": "__auto",
@@ -168,7 +176,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -214,7 +224,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"racks\"})",
           "legendFormat": "__auto",
@@ -239,7 +251,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Show the rack services that are in a {Off, Dead, Unknown} status.\nServices that are in an \"ON\" status are not shown.",
       "fieldConfig": {
         "defaults": {
@@ -333,7 +347,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "exemplar": false,
           "expr": "topk by(service, system_id) (1, sort_desc(maas_service_availability{maas_id=\"$maas_id\", system_id=\"$racks\", pid=\"\"}) != 1)",
@@ -364,7 +380,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -412,7 +430,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "100*((sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval])) - sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\", state=\"idle\"}[$__rate_interval])))) / sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval]))",
           "legendFormat": "cpu usage",
@@ -424,7 +444,9 @@
       "type": "gauge"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -501,7 +523,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "rate(maas_node_cpu_time_total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__rate_interval])",
@@ -518,7 +542,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -567,7 +593,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum without(pid) (1 - (last_over_time(maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval])/last_over_time(maas_node_mem_MemTotal{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval])))",
           "legendFormat": "RAM Usage",
@@ -579,7 +607,9 @@
       "type": "gauge"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Memory distribution values taken from /proc/meminfo",
       "fieldConfig": {
         "defaults": {
@@ -809,7 +839,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_Buffers{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -827,7 +859,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_SwapCached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -845,7 +879,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_Slab{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -863,7 +899,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_PageTables{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -881,7 +919,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_AnonPages{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -898,7 +938,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -916,7 +958,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_Cached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
           "format": "time_series",
@@ -930,7 +974,9 @@
           "step": 2
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "disableTextWrap": false,
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
@@ -948,7 +994,9 @@
           "useBackend": false
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum without(pid) ((maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})*2048)",
           "format": "time_series",
@@ -962,7 +1010,9 @@
           "step": 2
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum without(pid) (maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}*2048)",
           "format": "time_series",
@@ -975,7 +1025,9 @@
           "step": 2
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum without(pid) ((sum(maas_node_mem_HugePages_Total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})-sum(maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}))*2048)",
           "format": "time_series",
@@ -1006,7 +1058,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Average latency of rack to region rpc calls in $__rate_interval interval",
       "fieldConfig": {
         "defaults": {
@@ -1081,7 +1135,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
           "legendFormat": "__auto",
@@ -1093,7 +1149,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1220,7 +1278,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by (call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by (call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
@@ -1232,7 +1292,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
@@ -1244,7 +1306,9 @@
           "refId": "B"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "histogram_quantile(0.0001, sum by(call, le) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
@@ -1279,7 +1343,9 @@
       "type": "table"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1353,7 +1419,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "sum(rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) by(call) / \nsum(rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval])) by(call)",
           "legendFormat": "__auto",
@@ -1365,7 +1433,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -1485,7 +1555,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
@@ -1496,7 +1568,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
@@ -1508,7 +1582,9 @@
           "refId": "B"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "histogram_quantile(0.0001, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
@@ -1543,7 +1619,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Time necessary to fetch machines through the v2 API",
       "fieldConfig": {
         "defaults": {
@@ -1618,7 +1696,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "histogram_quantile(0.9, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
           "legendFormat": "p90",
@@ -1626,7 +1706,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.95, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
           "hide": false,
@@ -1635,7 +1717,9 @@
           "refId": "B"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.99, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
           "hide": false,
@@ -1648,7 +1732,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Time necessary to fetch machines through websockets. Includes a call to the v2 machine listing.",
       "fieldConfig": {
         "defaults": {
@@ -1723,7 +1809,9 @@
       },
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.9, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
           "legendFormat": "p90",
@@ -1731,7 +1819,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.95, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
           "hide": false,
@@ -1740,7 +1830,9 @@
           "refId": "B"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "builder",
           "expr": "histogram_quantile(0.99, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
           "hide": false,
@@ -1753,7 +1845,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "API calls with error status codes, grouped by status code, in the last 30 minutes.\nClick on a value to visualize which API calls are failing.",
       "fieldConfig": {
         "defaults": {
@@ -1811,7 +1905,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by(status) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
@@ -1822,7 +1918,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by(status) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
@@ -1845,7 +1943,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "description": "Shows which API calls are failing with the specified status code. To modify the visualization (i.e. the status code) use the panel above.",
       "fieldConfig": {
         "defaults": {
@@ -1892,7 +1992,9 @@
       "pluginVersion": "9.2.1",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by(method, path) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1)) ",
@@ -1903,7 +2005,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "exemplar": false,
           "expr": "sum by(method, handler) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1))",
@@ -1940,7 +2044,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -1992,7 +2098,9 @@
           "type": "math"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_kvm_machines{maas_id=\"$maas_id\"})",
           "hide": false,
@@ -2001,7 +2109,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"machines\"})",
           "legendFormat": "Total",
@@ -2013,7 +2123,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2058,7 +2170,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"devices\"})",
           "legendFormat": "__auto",
@@ -2070,7 +2184,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2115,7 +2231,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_kvm_pods{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2127,7 +2245,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2225,7 +2345,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2270,7 +2392,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_spaces{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2282,7 +2406,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2323,7 +2449,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_fabrics{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2335,7 +2463,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2376,7 +2506,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_vlans{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2388,7 +2520,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2429,7 +2563,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_subnets_v4{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2441,7 +2577,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2486,7 +2624,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_subnets_v6{maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
@@ -2498,7 +2638,9 @@
       "type": "stat"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2548,7 +2690,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_subnet_ip_count{cidr=\"$cidr\",maas_id=\"$maas_id\",status=\"available\"})",
           "legendFormat": "Available",
@@ -2556,7 +2700,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "max(maas_net_subnet_ip_count{cidr=\"$cidr\",maas_id=\"$maas_id\",status=\"unavailable\"})",
           "legendFormat": "Unavailable",
@@ -2581,7 +2727,9 @@
       "type": "row"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2656,7 +2804,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "avg(maas_kvm_cores{maas_id=\"$maas_id\"}) by (status)",
           "legendFormat": "{{status}}",
@@ -2664,7 +2814,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "expr": "avg(maas_kvm_overcommit_cores{maas_id=\"$maas_id\"})",
           "legendFormat": "available with vercommit",
           "refId": "B"
@@ -2674,7 +2826,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2750,7 +2904,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "avg(maas_kvm_memory{maas_id=\"$maas_id\"}) by (status)",
           "legendFormat": "__auto",
@@ -2758,7 +2914,9 @@
           "refId": "A"
         },
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "avg(maas_kvm_overcommit_memory{maas_id=\"$maas_id\"})",
           "hide": false,
@@ -2771,7 +2929,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "${prometheusds}",
+      "datasource": {
+          "uid": "${prometheusds}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2847,7 +3007,9 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "datasource": "${prometheusds}",
+          "datasource": {
+              "uid": "${prometheusds}"
+          },
           "editorMode": "code",
           "expr": "avg(maas_kvm_storage{maas_id=\"$maas_id\"}) by (status)",
           "legendFormat": "__auto",
@@ -2866,7 +3028,9 @@
   "templating": {
     "list": [
       {
-        "datasource": "${prometheusds}",
+        "datasource": {
+            "uid": "${prometheusds}"
+        },
         "definition": "label_values(maas_id)",
         "hide": 0,
         "includeAll": false,
@@ -2891,7 +3055,9 @@
           "text": "10.0.0.0/24",
           "value": "10.0.0.0/24"
         },
-        "datasource": "${prometheusds}",
+        "datasource": {
+            "uid": "${prometheusds}"
+        },
         "definition": "label_values(cidr)",
         "hide": 0,
         "includeAll": false,
@@ -2910,7 +3076,9 @@
         "type": "query"
       },
       {
-        "datasource": "${prometheusds}",
+        "datasource": {
+            "uid": "${prometheusds}"
+        },
         "definition": "label_values(host)",
         "hide": 0,
         "includeAll": true,
@@ -2933,7 +3101,9 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "${prometheusds}",
+        "datasource": {
+            "uid": "${prometheusds}"
+        },
         "definition": "label_values(system_id)",
         "hide": 0,
         "includeAll": true,
