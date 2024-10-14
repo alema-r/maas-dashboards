@@ -1,3206 +1,3526 @@
 {
-  "annotations": {
-    "list": [
+  "annotations":{
+    "list":[
       {
-        "builtIn": 1,
-        "datasource": {
-          "type": "grafana",
-          "uid": "-- Grafana --"
+        "builtIn":1,
+        "datasource":{
+          "type":"grafana",
+          "uid":"-- Grafana --"
         },
-        "enable": true,
-        "hide": true,
-        "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
-        "target": {
-          "limit": 100,
-          "matchAny": false,
-          "tags": [],
-          "type": "dashboard"
+        "enable":true,
+        "hide":true,
+        "iconColor":"rgba(0, 211, 255, 1)",
+        "name":"Annotations & Alerts",
+        "target":{
+          "limit":100,
+          "matchAny":false,
+          "tags":[
+            
+          ],
+          "type":"dashboard"
         },
-        "type": "dashboard"
+        "type":"dashboard"
       }
     ]
   },
-  "editable": true,
-  "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
-  "id": 122,
-  "links": [],
-  "liveNow": false,
-  "panels": [
+  "editable":true,
+  "fiscalYearStartMonth":0,
+  "graphTooltip":0,
+  "id":24,
+  "links":[
+    
+  ],
+  "liveNow":false,
+  "panels":[
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":0
       },
-      "id": 1,
-      "panels": [],
-      "title": "Controllers",
-      "type": "row"
+      "id":1,
+      "panels":[
+        
+      ],
+      "title":"Controllers",
+      "type":"row"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green",
-                "value": null
+                "color":"green",
+                "value":null
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 0,
-        "y": 1
+      "gridPos":{
+        "h":5,
+        "w":8,
+        "x":0,
+        "y":1
       },
-      "id": 2,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
+      "id":2,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
       },
-      "pluginVersion": "9.5.3",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"regionracks\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Region/Rack Controllers",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 8,
-        "y": 1
-      },
-      "id": 3,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.5.3",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"regions\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Region Controllers",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 16,
-        "y": 1
-      },
-      "id": 4,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.5.3",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"racks\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Rack Controllers",
-      "type": "stat"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 6
-      },
-      "id": 45,
-      "panels": [],
-      "title": "Racks Status",
-      "type": "row"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "description": "Show the rack services that are in a {Off, Dead, Unknown} status.\nServices that are in an \"ON\" status are not shown.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-GrYlRd"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
           },
-          "links": [
+          "editorMode":"code",
+          "expr":"max(maas_nodes{maas_id=\"$maas_id\",type=\"regionracks\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"Region/Rack Controllers",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green",
+                "value":null
+              },
+              {
+                "color":"red",
+                "value":80
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":8,
+        "x":8,
+        "y":1
+      },
+      "id":3,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_nodes{maas_id=\"$maas_id\",type=\"regions\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"Region Controllers",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green",
+                "value":null
+              },
+              {
+                "color":"red",
+                "value":80
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":8,
+        "x":16,
+        "y":1
+      },
+      "id":4,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_nodes{maas_id=\"$maas_id\",type=\"racks\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"Rack Controllers",
+      "type":"stat"
+    },
+    {
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":6
+      },
+      "id":45,
+      "panels":[
+        
+      ],
+      "title":"Racks Status",
+      "type":"row"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Show the rack services that are in a {Off, Dead, Unknown} status.\nServices that are in an \"ON\" status are not shown.",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"continuous-GrYlRd"
+          },
+          "links":[
             {
-              "targetBlank": true,
-              "title": "Node info",
-              "url": "http://${maas_vip}:5240/MAAS/r/controller/${__field.labels.system_id}﻿/summary"
+              "targetBlank":true,
+              "title":"Node info",
+              "url":"http://${maas_vip}:5240/MAAS/r/controller/${__field.labels.system_id}﻿/summary"
             }
           ],
-          "mappings": [
+          "mappings":[
             {
-              "options": {
-                "0": {
-                  "color": "yellow",
-                  "index": 0,
-                  "text": "Unknown"
+              "options":{
+                "0":{
+                  "color":"light-blue",
+                  "index":0,
+                  "text":"Managed by the region"
                 },
-                "1": {
-                  "color": "green",
-                  "index": 1,
-                  "text": "On"
+                "1":{
+                  "color":"green",
+                  "index":1,
+                  "text":"On"
                 },
-                "2": {
-                  "color": "orange",
-                  "index": 2,
-                  "text": "Degraded"
+                "2":{
+                  "color":"orange",
+                  "index":2,
+                  "text":"Degraded"
                 },
-                "3": {
-                  "color": "red",
-                  "index": 3,
-                  "text": "Dead"
+                "3":{
+                  "color":"red",
+                  "index":3,
+                  "text":"Dead"
                 },
-                "4": {
-                  "color": "text",
-                  "index": 4,
-                  "text": "Off"
+                "4":{
+                  "color":"text",
+                  "index":4,
+                  "text":"Off"
                 }
               },
-              "type": "value"
+              "type":"value"
             }
           ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green",
-                "value": null
+                "color":"green",
+                "value":null
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "short"
+          "unit":"short"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 0,
-        "y": 7
+      "gridPos":{
+        "h":8,
+        "w":8,
+        "x":0,
+        "y":7
       },
-      "id": 54,
-      "maxPerRow": 3,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "center",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
+      "id":54,
+      "maxPerRow":3,
+      "options":{
+        "colorMode":"background",
+        "graphMode":"none",
+        "justifyMode":"center",
+        "orientation":"horizontal",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "text": {
-          "titleSize": 20,
-          "valueSize": 20
+        "text":{
+          "titleSize":20,
+          "valueSize":20
         },
-        "textMode": "value_and_name"
+        "textMode":"value_and_name"
       },
-      "pluginVersion": "9.5.3",
-      "repeat": "racks",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeat":"racks",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "topk by(service, system_id) (1, sort_desc(maas_service_availability{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",pid=\"\",system_id=\"$racks\"}) != 1)",
-          "format": "heatmap",
-          "instant": true,
-          "legendFormat": "{{service}}",
-          "range": false,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "exemplar":false,
+          "expr":"topk by(service, system_id) (1, sort_desc(maas_service_availability{maas_id=\"$maas_id\", system_id=\"$racks\", pid=\"\"})) != 1 != 4",
+          "format":"heatmap",
+          "instant":true,
+          "legendFormat":"{{service}}",
+          "range":false,
+          "refId":"A"
         }
       ],
-      "title": "Rack Services Status (system_id=$racks)",
-      "transformations": [],
-      "type": "stat"
+      "title":"Rack Services Status (system_id=$racks)",
+      "transformations":[
+        
+      ],
+      "type":"stat"
     },
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 15
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":15
       },
-      "id": 26,
-      "panels": [],
-      "repeat": "node",
-      "repeatDirection": "h",
-      "title": "MAAS Node Status (${node:raw})",
-      "type": "row"
+      "id":26,
+      "panels":[
+        
+      ],
+      "repeat":"node",
+      "repeatDirection":"h",
+      "title":"MAAS Node Status (${node:raw})",
+      "type":"row"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "max":100,
+          "min":0,
+          "thresholds":{
+            "mode":"percentage",
+            "steps":[
               {
-                "color": "green",
-                "value": null
+                "color":"green",
+                "value":null
               },
               {
-                "color": "orange",
-                "value": 70
+                "color":"orange",
+                "value":70
               },
               {
-                "color": "red",
-                "value": 85
+                "color":"red",
+                "value":85
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 4,
-        "x": 0,
-        "y": 16
+      "gridPos":{
+        "h":9,
+        "w":4,
+        "x":0,
+        "y":16
       },
-      "id": 36,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
+      "id":36,
+      "options":{
+        "orientation":"auto",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdLabels":false,
+        "showThresholdMarkers":true
       },
-      "pluginVersion": "9.5.3",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "100 * ((sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) - sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",state=\"idle\"}[$__rate_interval])))) / sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
-          "legendFormat": "cpu usage",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"100*((sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval])) - sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\", state=\"idle\"}[$__rate_interval])))) / sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval]))",
+          "legendFormat":"cpu usage",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "CPU usage ($node)",
-      "type": "gauge"
+      "title":"CPU usage ($node)",
+      "type":"gauge"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 25,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":25,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"normal"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green",
-                "value": null
+                "color":"green",
+                "value":null
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 20,
-        "x": 4,
-        "y": 16
+      "gridPos":{
+        "h":9,
+        "w":20,
+        "x":4,
+        "y":16
       },
-      "id": 27,
-      "options": {
-        "legend": {
-          "calcs": [
+      "id":27,
+      "options":{
+        "legend":{
+          "calcs":[
             "lastNotNull"
           ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true
+          "displayMode":"table",
+          "placement":"right",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
+        "tooltip":{
+          "mode":"multi",
+          "sort":"desc"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__rate_interval])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "{{state}}",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"rate(maas_node_cpu_time_total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__rate_interval])",
+          "fullMetaSearch":false,
+          "includeNullMetadata":true,
+          "instant":false,
+          "legendFormat":"{{state}}",
+          "range":true,
+          "refId":"A",
+          "useBackend":false
         }
       ],
-      "title": "CPU time ($node)",
-      "type": "timeseries"
+      "title":"CPU time ($node)",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "max": 1,
-          "min": 0,
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "max":1,
+          "min":0,
+          "thresholds":{
+            "mode":"percentage",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "orange",
-                "value": 70
+                "color":"orange",
+                "value":70
               },
               {
-                "color": "red",
-                "value": 85
+                "color":"red",
+                "value":85
               }
             ]
           },
-          "unit": "percentunit"
+          "unit":"percentunit"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 4,
-        "x": 0,
-        "y": 25
+      "gridPos":{
+        "h":9,
+        "w":4,
+        "x":0,
+        "y":25
       },
-      "id": 65,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
+      "id":65,
+      "options":{
+        "orientation":"auto",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdLabels":false,
+        "showThresholdMarkers":true
       },
-      "pluginVersion": "9.2.1",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum without(pid) (1 - (last_over_time(maas_node_mem_MemFree{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__interval]) / last_over_time(maas_node_mem_MemTotal{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__interval])))",
-          "legendFormat": "RAM Usage",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum without(pid) (1 - (last_over_time(maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval])/last_over_time(maas_node_mem_MemTotal{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval])))",
+          "legendFormat":"RAM Usage",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "RAM usage ($node)",
-      "type": "gauge"
+      "title":"RAM usage ($node)",
+      "type":"gauge"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "Memory distribution values taken from /proc/meminfo",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Memory distribution values taken from /proc/meminfo",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":10,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
+            "showPoints":"never",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"normal"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "min":0,
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "deckbytes"
+          "unit":"deckbytes"
         },
-        "overrides": [
+        "overrides":[
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Anonymous"
+            "matcher":{
+              "id":"byName",
+              "options":"Anonymous"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#447EBC",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#447EBC",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Buffers"
+            "matcher":{
+              "id":"byName",
+              "options":"Buffers"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#FCEACA",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#FCEACA",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Free"
+            "matcher":{
+              "id":"byName",
+              "options":"Free"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#3F6833",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#3F6833",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Hugepages Free"
+            "matcher":{
+              "id":"byName",
+              "options":"Hugepages Free"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#B7DBAB",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#B7DBAB",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Hugepages Reserved"
+            "matcher":{
+              "id":"byName",
+              "options":"Hugepages Reserved"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#F2C96D",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#F2C96D",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Hugepages Used"
+            "matcher":{
+              "id":"byName",
+              "options":"Hugepages Used"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#BF1B00",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#BF1B00",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Mapped and Cached"
+            "matcher":{
+              "id":"byName",
+              "options":"Mapped and Cached"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#e24d42",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#e24d42",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Page Tables"
+            "matcher":{
+              "id":"byName",
+              "options":"Page Tables"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#E5A8E2",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#E5A8E2",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Shared memory smallpages"
+            "matcher":{
+              "id":"byName",
+              "options":"Shared memory smallpages"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#962D82",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#962D82",
+                  "mode":"fixed"
                 }
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Slab"
+            "matcher":{
+              "id":"byName",
+              "options":"Slab"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#EAB839",
-                  "mode": "fixed"
+                "id":"color",
+                "value":{
+                  "fixedColor":"#EAB839",
+                  "mode":"fixed"
                 }
               }
             ]
           }
         ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 20,
-        "x": 4,
-        "y": 25
+      "gridPos":{
+        "h":9,
+        "w":20,
+        "x":4,
+        "y":25
       },
-      "id": 29,
-      "options": {
-        "legend": {
-          "calcs": [
+      "id":29,
+      "options":{
+        "legend":{
+          "calcs":[
             "lastNotNull"
           ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true
+          "displayMode":"table",
+          "placement":"right",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "desc"
+        "tooltip":{
+          "mode":"multi",
+          "sort":"desc"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Buffers{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Buffers",
-          "metric": "maas_node_mem_Buffers",
-          "range": true,
-          "refId": "A",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_Buffers{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Buffers",
+          "metric":"maas_node_mem_Buffers",
+          "range":true,
+          "refId":"A",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_SwapCached{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Swap Cached",
-          "metric": "maas_node_mem_SwapCached",
-          "range": true,
-          "refId": "K",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_SwapCached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Swap Cached",
+          "metric":"maas_node_mem_SwapCached",
+          "range":true,
+          "refId":"K",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Slab{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Slab",
-          "metric": "maas_node_mem_Slab",
-          "range": true,
-          "refId": "I",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_Slab{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Slab",
+          "metric":"maas_node_mem_Slab",
+          "range":true,
+          "refId":"I",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_PageTables{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Page Tables",
-          "metric": "maas_node_mem_PageTables",
-          "range": true,
-          "refId": "F",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_PageTables{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Page Tables",
+          "metric":"maas_node_mem_PageTables",
+          "range":true,
+          "refId":"F",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_AnonPages{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "intervalFactor": 2,
-          "legendFormat": "Anonymous",
-          "metric": "maas_node_mem_AnonPages",
-          "range": true,
-          "refId": "E",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_AnonPages{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "intervalFactor":2,
+          "legendFormat":"Anonymous",
+          "metric":"maas_node_mem_AnonPages",
+          "range":true,
+          "refId":"E",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Shmem{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Shared memory smallpages",
-          "metric": "maas_node_mem_Shmem",
-          "range": true,
-          "refId": "L",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Shared memory smallpages",
+          "metric":"maas_node_mem_Shmem",
+          "range":true,
+          "refId":"L",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Cached{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} - maas_node_mem_Shmem{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Mapped and Cached",
-          "metric": "maas_node_mem_Cached",
-          "range": true,
-          "refId": "C",
-          "step": 2
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_Cached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "hide":false,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Mapped and Cached",
+          "metric":"maas_node_mem_Cached",
+          "range":true,
+          "refId":"C",
+          "step":2
         },
         {
-          "datasource": "${prometheusds}",
-          "disableTextWrap": false,
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_MemFree{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
-          "format": "time_series",
-          "fullMetaSearch": false,
-          "hide": false,
-          "includeNullMetadata": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Free",
-          "metric": "maas_node_mem_MemFree",
-          "range": true,
-          "refId": "B",
-          "step": 2,
-          "useBackend": false
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "disableTextWrap":false,
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "format":"time_series",
+          "fullMetaSearch":false,
+          "hide":false,
+          "includeNullMetadata":true,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Free",
+          "metric":"maas_node_mem_MemFree",
+          "range":true,
+          "refId":"B",
+          "step":2,
+          "useBackend":false
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum without(pid) ((maas_node_mem_HugePages_Free{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} - maas_node_mem_HugePages_Rsvd{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}) * 2048)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Hugepages Free",
-          "metric": "maas_node_mem_HugePages_Free",
-          "range": true,
-          "refId": "H",
-          "step": 2
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum without(pid) ((maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})*2048)",
+          "format":"time_series",
+          "hide":false,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Hugepages Free",
+          "metric":"maas_node_mem_HugePages_Free",
+          "range":true,
+          "refId":"H",
+          "step":2
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_HugePages_Rsvd{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} * 2048)",
-          "format": "time_series",
-          "hide": false,
-          "intervalFactor": 2,
-          "legendFormat": "Hugepages Reserved",
-          "metric": "maas_node_mem_HugePages_Rsvd",
-          "range": true,
-          "refId": "G",
-          "step": 2
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum without(pid) (maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}*2048)",
+          "format":"time_series",
+          "hide":false,
+          "intervalFactor":2,
+          "legendFormat":"Hugepages Reserved",
+          "metric":"maas_node_mem_HugePages_Rsvd",
+          "range":true,
+          "refId":"G",
+          "step":2
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum without(pid) ((sum(maas_node_mem_HugePages_Total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}) - sum(maas_node_mem_HugePages_Free{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})) * 2048)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Hugepages Used",
-          "metric": "maas_node_mem_HugePages_Total",
-          "range": true,
-          "refId": "M",
-          "step": 2
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum without(pid) ((sum(maas_node_mem_HugePages_Total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})-sum(maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}))*2048)",
+          "format":"time_series",
+          "hide":false,
+          "interval":"",
+          "intervalFactor":2,
+          "legendFormat":"Hugepages Used",
+          "metric":"maas_node_mem_HugePages_Total",
+          "range":true,
+          "refId":"M",
+          "step":2
         }
       ],
-      "title": "Memory distribution ($node)",
-      "type": "timeseries"
+      "title":"Memory distribution ($node)",
+      "type":"timeseries"
     },
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 34
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":72
       },
-      "id": 77,
-      "panels": [],
-      "title": "RPC Calls",
-      "type": "row"
+      "id":77,
+      "panels":[
+        
+      ],
+      "title":"RPC Calls",
+      "type":"row"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "Average latency of rack to region rpc calls in $__rate_interval interval",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Average latency of rack to region rpc calls in $__rate_interval interval",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "s"
+          "unit":"s"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 35
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":0,
+        "y":73
       },
-      "id": 90,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":90,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "tooltip":{
+          "mode":"single",
+          "sort":"none"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_rack_region_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "Rack -> Region calls avg latency",
-      "type": "timeseries"
+      "title":"Rack -> Region calls avg latency",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"",
+      "fieldConfig":{
+        "defaults":{
+          "custom":{
+            "align":"auto",
+            "displayMode":"auto",
+            "filterable":false,
+            "inspect":false
           },
-          "mappings": [
+          "mappings":[
             {
-              "options": {
-                "NaN": {
-                  "index": 0,
-                  "text": "-"
+              "options":{
+                "NaN":{
+                  "index":0,
+                  "text":"-"
                 }
               },
-              "type": "value"
+              "type":"value"
             }
           ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "s"
+          "unit":"s"
         },
-        "overrides": [
+        "overrides":[
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Time"
+            "matcher":{
+              "id":"byName",
+              "options":"Time"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "custom.hidden",
-                "value": true
+                "id":"custom.hidden",
+                "value":true
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #A"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #A"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Avg"
+                "id":"displayName",
+                "value":"Avg"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #B"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #B"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Max"
+                "id":"displayName",
+                "value":"Max"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #C"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #C"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Min"
+                "id":"displayName",
+                "value":"Min"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           }
         ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 35
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":12,
+        "y":73
       },
-      "id": 103,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "enablePagination": false,
-          "fields": [],
-          "reducer": [
+      "id":103,
+      "options":{
+        "cellHeight":"sm",
+        "footer":{
+          "countRows":false,
+          "enablePagination":false,
+          "fields":[
+            
+          ],
+          "reducer":[
             "sum"
           ],
-          "show": false
+          "show":false
         },
-        "showHeader": true,
-        "sortBy": [
+        "showHeader":true,
+        "sortBy":[
           {
-            "desc": true,
-            "displayName": "Avg"
+            "desc":true,
+            "displayName":"Avg"
           }
         ]
       },
-      "pluginVersion": "9.2.1",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_rack_region_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "avg",
-          "range": false,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by (call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by (call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "format":"table",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"avg",
+          "range":false,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_rack_region_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "max",
-          "range": false,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"histogram_quantile(1, sum by(le, call) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
+          "format":"table",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"max",
+          "range":false,
+          "refId":"B"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "histogram_quantile(0.0001, sum by(call, le) (rate(maas_rack_region_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "min",
-          "range": false,
-          "refId": "C"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"histogram_quantile(0.0001, sum by(call, le) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
+          "format":"table",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"min",
+          "range":false,
+          "refId":"C"
         }
       ],
-      "title": "Rack -> Region calls latency",
-      "transformations": [
+      "title":"Rack -> Region calls latency",
+      "transformations":[
         {
-          "id": "merge",
-          "options": {}
+          "id":"merge",
+          "options":{
+            
+          }
         },
         {
-          "disabled": true,
-          "id": "sortBy",
-          "options": {
-            "fields": {},
-            "sort": [
+          "disabled":true,
+          "id":"sortBy",
+          "options":{
+            "fields":{
+              
+            },
+            "sort":[
               {
-                "desc": true,
-                "field": "Value #A"
+                "desc":true,
+                "field":"Value #A"
               }
             ]
           }
         }
       ],
-      "type": "table"
+      "type":"table"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "ms"
+          "unit":"ms"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 43
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":0,
+        "y":81
       },
-      "id": 89,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":89,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "tooltip":{
+          "mode":"single",
+          "sort":"none"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_region_rack_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"sum(rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) by(call) / \nsum(rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval])) by(call)",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "Region -> Rack calls avg latency",
-      "type": "timeseries"
+      "title":"Region -> Rack calls avg latency",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": false,
-            "inspect": false
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "custom":{
+            "align":"auto",
+            "displayMode":"auto",
+            "filterable":false,
+            "inspect":false
           },
-          "mappings": [
+          "mappings":[
             {
-              "options": {
-                "NaN": {
-                  "index": 0,
-                  "text": "-"
+              "options":{
+                "NaN":{
+                  "index":0,
+                  "text":"-"
                 }
               },
-              "type": "value"
+              "type":"value"
             }
           ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "s"
+          "unit":"s"
         },
-        "overrides": [
+        "overrides":[
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Time"
+            "matcher":{
+              "id":"byName",
+              "options":"Time"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "custom.hidden",
-                "value": true
+                "id":"custom.hidden",
+                "value":true
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #A"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #A"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Avg"
+                "id":"displayName",
+                "value":"Avg"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #B"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #B"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Max"
+                "id":"displayName",
+                "value":"Max"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           },
           {
-            "matcher": {
-              "id": "byName",
-              "options": "Value #C"
+            "matcher":{
+              "id":"byName",
+              "options":"Value #C"
             },
-            "properties": [
+            "properties":[
               {
-                "id": "displayName",
-                "value": "Min"
+                "id":"displayName",
+                "value":"Min"
               },
               {
-                "id": "custom.align",
-                "value": "auto"
+                "id":"custom.align",
+                "value":"auto"
               }
             ]
           }
         ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 43
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":12,
+        "y":81
       },
-      "id": 104,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "enablePagination": false,
-          "fields": [],
-          "reducer": [
+      "id":104,
+      "options":{
+        "cellHeight":"sm",
+        "footer":{
+          "countRows":false,
+          "enablePagination":false,
+          "fields":[
+            
+          ],
+          "reducer":[
             "sum"
           ],
-          "show": false
+          "show":false
         },
-        "showHeader": true
+        "showHeader":true
       },
-      "pluginVersion": "9.2.1",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_region_rack_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "avg",
-          "range": false,
-          "refId": "A"
-        },
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "max",
-          "range": false,
-          "refId": "B"
-        },
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "histogram_quantile(0.0001, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
-          "format": "table",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "min",
-          "range": false,
-          "refId": "C"
-        }
-      ],
-      "title": "Region -> Rack calls",
-      "transformations": [
-        {
-          "id": "merge",
-          "options": {}
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 51
-      },
-      "id": 105,
-      "panels": [],
-      "title": "API Calls",
-      "type": "row"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "description": "Time necessary to fetch machines through the v2 API",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "format":"table",
+          "instant":true,
+          "legendFormat":"avg",
+          "range":false,
+          "refId":"A"
+        },
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"histogram_quantile(1, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
+          "format":"table",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"max",
+          "range":false,
+          "refId":"B"
+        },
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"histogram_quantile(0.0001, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
+          "format":"table",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"min",
+          "range":false,
+          "refId":"C"
+        }
+      ],
+      "title":"Region -> Rack calls",
+      "transformations":[
+        {
+          "id":"merge",
+          "options":{
+            
+          }
+        }
+      ],
+      "type":"table"
+    },
+    {
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":89
+      },
+      "id":105,
+      "panels":[
+        
+      ],
+      "title":"API Calls",
+      "type":"row"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Time necessary to fetch machines through the v2 API",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
+          },
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "dashed"
+            "thresholdsStyle":{
+              "mode":"dashed"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 1
+                "color":"red",
+                "value":1
               }
             ]
           },
-          "unit": "s"
+          "unit":"s"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 52
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":0,
+        "y":90
       },
-      "id": 117,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":117,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "tooltip":{
+          "mode":"single",
+          "sort":"none"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "legendFormat": "p90",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"histogram_quantile(0.9, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "legendFormat":"p90",
+          "range":true,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "hide": false,
-          "legendFormat": "p95",
-          "range": true,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "expr":"histogram_quantile(0.95, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "hide":false,
+          "legendFormat":"p95",
+          "range":true,
+          "refId":"B"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "hide": false,
-          "legendFormat": "p99",
-          "range": true,
-          "refId": "C"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "expr":"histogram_quantile(0.99, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "hide":false,
+          "legendFormat":"p99",
+          "range":true,
+          "refId":"C"
         }
       ],
-      "title": "Machine Listing percentiles (v2)",
-      "type": "timeseries"
+      "title":"Machine Listing percentiles (v2)",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "Time necessary to fetch machines through websockets. Includes a call to the v2 machine listing.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Time necessary to fetch machines through websockets. Includes a call to the v2 machine listing.",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "dashed"
+            "thresholdsStyle":{
+              "mode":"dashed"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 1
+                "color":"red",
+                "value":1
               }
             ]
           },
-          "unit": "s"
+          "unit":"s"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 52
+      "gridPos":{
+        "h":8,
+        "w":12,
+        "x":12,
+        "y":90
       },
-      "id": 119,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":119,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "tooltip":{
+          "mode":"single",
+          "sort":"none"
         }
       },
-      "targets": [
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.9, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "legendFormat": "p90",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "expr":"histogram_quantile(0.9, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "legendFormat":"p90",
+          "range":true,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "hide": false,
-          "legendFormat": "p95",
-          "range": true,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "expr":"histogram_quantile(0.95, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "hide":false,
+          "legendFormat":"p95",
+          "range":true,
+          "refId":"B"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
-          "hide": false,
-          "legendFormat": "p99",
-          "range": true,
-          "refId": "C"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"builder",
+          "expr":"histogram_quantile(0.99, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "hide":false,
+          "legendFormat":"p99",
+          "range":true,
+          "refId":"C"
         }
       ],
-      "title": "Machine Listing percentiles (WS)",
-      "type": "timeseries"
+      "title":"Machine Listing percentiles (WS)",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "API calls with error status codes, grouped by status code, in the last 30 minutes.\nClick on a value to visualize which API calls are failing.",
-      "fieldConfig": {
-        "defaults": {
-          "links": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"API calls with error status codes, grouped by status code, in the last 30 minutes.\nClick on a value to visualize which API calls are failing.",
+      "fieldConfig":{
+        "defaults":{
+          "links":[
             {
-              "title": "",
-              "url": "http://${maas_vip}/cos-grafana/d/maas-stats/maas-stats?orgId=1&var-maas_id=${maas_id}&var-status_code=${__field.name}&viewPanel=135"
+              "title":"",
+              "url":"http://${maas_vip}/cos-grafana/d/maas-stats/maas-stats?orgId=1&var-maas_id=${maas_id}&var-status_code=${__field.name}&viewPanel=135"
             }
           ],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "#EAB839",
-                "value": 25
+                "color":"#EAB839",
+                "value":25
               },
               {
-                "color": "red",
-                "value": 50
+                "color":"red",
+                "value":50
               }
             ]
           },
-          "unit": "short"
+          "unit":"short"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 24,
-        "x": 0,
-        "y": 60
+      "gridPos":{
+        "h":5,
+        "w":24,
+        "x":0,
+        "y":98
       },
-      "id": 133,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
+      "id":133,
+      "options":{
+        "colorMode":"background",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "text": {
-          "titleSize": 20
+        "text":{
+          "titleSize":20
         },
-        "textMode": "auto"
+        "textMode":"auto"
       },
-      "pluginVersion": "9.2.1",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(status) (round(increase(maas_http_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by(status) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"__auto",
+          "range":false,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(status) (round(increase(maas_apiserver_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by(status) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"__auto",
+          "range":false,
+          "refId":"B"
         }
       ],
-      "title": "4xx/5xx responses count (last 30m)",
-      "transformations": [
+      "title":"4xx/5xx responses count (last 30m)",
+      "transformations":[
         {
-          "id": "joinByLabels",
-          "options": {
-            "value": "status"
+          "id":"joinByLabels",
+          "options":{
+            "value":"status"
           }
         }
       ],
-      "type": "stat"
+      "type":"stat"
     },
     {
-      "datasource": "${prometheusds}",
-      "description": "Shows which API calls are failing with the specified status code. To modify the visualization (i.e. the status code) use the panel above.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "description":"Shows which API calls are failing with the specified status code. To modify the visualization (i.e. the status code) use the panel above.",
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"thresholds"
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 65
+      "gridPos":{
+        "h":6,
+        "w":24,
+        "x":0,
+        "y":103
       },
-      "id": 135,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
+      "id":135,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"horizontal",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "textMode": "value_and_name"
+        "textMode":"value_and_name"
       },
-      "pluginVersion": "9.2.1",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(method, path) (round(increase(maas_http_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"$status_code\"}[30m]) > 0, 1))",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "{{method}} {{path}}",
-          "range": false,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by(method, path) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1)) ",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"{{method}} {{path}}",
+          "range":false,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "sum by(method, handler) (round(increase(maas_apiserver_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"$status_code\"}[30m]) > 0, 1))",
-          "hide": false,
-          "instant": true,
-          "legendFormat": "{{method}} {{handler}}",
-          "range": false,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"sum by(method, handler) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1))",
+          "hide":false,
+          "instant":true,
+          "legendFormat":"{{method}} {{handler}}",
+          "range":false,
+          "refId":"B"
         }
       ],
-      "title": "API calls with $status_code response ",
-      "transformations": [
+      "title":"API calls with $status_code response ",
+      "transformations":[
         {
-          "disabled": true,
-          "id": "joinByLabels",
-          "options": {
-            "value": "path"
+          "disabled":true,
+          "id":"joinByLabels",
+          "options":{
+            "value":"path"
           }
         }
       ],
-      "type": "stat"
+      "type":"stat"
     },
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 71
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":109
       },
-      "id": 5,
-      "panels": [],
-      "title": "Machines",
-      "type": "row"
+      "id":5,
+      "panels":[
+        
+      ],
+      "title":"Machines",
+      "type":"row"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               }
             ]
           },
-          "unit": "short"
+          "unit":"short"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 0,
-        "y": 72
+      "gridPos":{
+        "h":5,
+        "w":5,
+        "x":0,
+        "y":110
       },
-      "id": 12,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
+      "id":12,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"horizontal",
+        "reduceOptions":{
+          "calcs":[
             "lastNotNull"
           ],
-          "fields": "",
-          "values": false
+          "fields":"",
+          "values":false
         },
-        "textMode": "auto"
+        "textMode":"auto"
       },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
+          "datasource":{
+            "name":"Expression",
+            "type":"__expr__",
+            "uid":"__expr__"
           },
-          "expression": "$B - $A",
-          "hide": false,
-          "refId": "Physical",
-          "type": "math"
+          "expression":"$B - $A",
+          "hide":false,
+          "refId":"Physical",
+          "type":"math"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_kvm_machines{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "hide": false,
-          "legendFormat": "Virtual",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_kvm_machines{maas_id=\"$maas_id\"})",
+          "hide":false,
+          "legendFormat":"Virtual",
+          "range":true,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"machines\"})",
-          "legendFormat": "Total",
-          "range": true,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_nodes{maas_id=\"$maas_id\",type=\"machines\"})",
+          "legendFormat":"Total",
+          "range":true,
+          "refId":"B"
         }
       ],
-      "title": "Machines",
-      "type": "stat"
+      "title":"Machines",
+      "type":"stat"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
+                "color":"green"
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 5,
-        "y": 72
+      "gridPos":{
+        "h":5,
+        "w":5,
+        "x":5,
+        "y":110
       },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
+      "id":11,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
       },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"devices\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_nodes{maas_id=\"$maas_id\",type=\"devices\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "Devices",
-      "type": "stat"
+      "title":"Devices",
+      "type":"stat"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 5,
-        "x": 10,
-        "y": 72
+      "gridPos":{
+        "h":5,
+        "w":5,
+        "x":10,
+        "y":110
       },
-      "id": 9,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
+      "id":9,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
       },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_kvm_pods{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_kvm_pods{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "KVM Hosts",
-      "type": "stat"
+      "title":"KVM Hosts",
+      "type":"stat"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 25,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":25,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
+            "showPoints":"never",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"normal"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 24,
-        "x": 0,
-        "y": 77
+      "gridPos":{
+        "h":9,
+        "w":24,
+        "x":0,
+        "y":115
       },
-      "id": 14,
-      "options": {
-        "legend": {
-          "calcs": [
+      "id":14,
+      "options":{
+        "legend":{
+          "calcs":[
             "last"
           ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true
+          "displayMode":"table",
+          "placement":"right",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "tooltip":{
+          "mode":"single",
+          "sort":"none"
         }
       },
-      "repeatDirection": "h",
-      "targets": [
+      "repeatDirection":"h",
+      "targets":[
         {
-          "expr": "max by(status) (maas_machines{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "{{status}}",
-          "refId": "A"
+          "expr":"max(maas_machines{maas_id=\"$maas_id\"}) by (status)",
+          "legendFormat":"{{status}}",
+          "refId":"A"
         }
       ],
-      "title": "Machines by status",
-      "type": "timeseries"
+      "title":"Machines by status",
+      "type":"timeseries"
     },
     {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 86
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":124
       },
-      "id": 15,
-      "panels": [],
-      "title": "Networks",
-      "type": "row"
+      "id":15,
+      "panels":[
+        
+      ],
+      "title":"Networks",
+      "type":"row"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 0,
-        "y": 87
+      "gridPos":{
+        "h":5,
+        "w":4,
+        "x":0,
+        "y":125
       },
-      "id": 16,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
+      "id":16,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
       },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_spaces{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Spaces",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 4,
-        "y": 87
-      },
-      "id": 17,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_fabrics{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Fabrics",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 8,
-        "y": 87
-      },
-      "id": 18,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_vlans{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "VLANs",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 12,
-        "y": 87
-      },
-      "id": 19,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_subnets_v4{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "IPv4 subnets",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 16,
-        "y": 87
-      },
-      "id": 20,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "9.2.1",
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_subnets_v6{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "IPv6 subnets",
-      "type": "stat"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
           },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "editorMode":"code",
+          "expr":"max(maas_net_spaces{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"Spaces",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green"
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":4,
+        "x":4,
+        "y":125
+      },
+      "id":17,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_net_fabrics{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"Fabrics",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green"
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":4,
+        "x":8,
+        "y":125
+      },
+      "id":18,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_net_vlans{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"VLANs",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green"
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":4,
+        "x":12,
+        "y":125
+      },
+      "id":19,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_net_subnets_v4{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"IPv4 subnets",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green"
+              },
+              {
+                "color":"red",
+                "value":80
+              }
+            ]
+          }
+        },
+        "overrides":[
+          
+        ]
+      },
+      "gridPos":{
+        "h":5,
+        "w":4,
+        "x":16,
+        "y":125
+      },
+      "id":20,
+      "options":{
+        "colorMode":"value",
+        "graphMode":"none",
+        "justifyMode":"auto",
+        "orientation":"auto",
+        "percentChangeColorMode":"standard",
+        "reduceOptions":{
+          "calcs":[
+            
+          ],
+          "fields":"",
+          "values":false
+        },
+        "showPercentChange":false,
+        "textMode":"auto",
+        "wideLayout":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"max(maas_net_subnets_v6{maas_id=\"$maas_id\"})",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
+        }
+      ],
+      "title":"IPv6 subnets",
+      "type":"stat"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "custom":{
+            "align":"auto",
+            "displayMode":"auto",
+            "inspect":false
+          },
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
+              {
+                "color":"green"
+              },
+              {
+                "color":"red",
+                "value":80
+              }
+            ]
+          }
+        },
+        "overrides":[
+          {
+            "matcher":{
+              "id":"byName",
+              "options":"Time"
+            },
+            "properties":[
+              {
+                "id":"custom.hidden",
+                "value":true
+              }
+            ]
+          },
+          {
+            "matcher":{
+              "id":"byName",
+              "options":"Value #A"
+            },
+            "properties":[
+              {
+                "id":"displayName",
+                "value":"Available"
+              }
+            ]
+          },
+          {
+            "matcher":{
+              "id":"byName",
+              "options":"Value #B"
+            },
+            "properties":[
+              {
+                "id":"displayName",
+                "value":"Used"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos":{
+        "h":7,
+        "w":8,
+        "x":0,
+        "y":130
+      },
+      "id":21,
+      "options":{
+        "footer":{
+          "fields":"",
+          "reducer":[
+            "sum"
+          ],
+          "show":false
+        },
+        "showHeader":true
+      },
+      "pluginVersion":"9.2.1",
+      "repeatDirection":"h",
+      "targets":[
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"max(maas_net_subnet_ip_count{maas_id=\"$maas_id\",status=\"available\"}) by(cidr)",
+          "format":"table",
+          "instant":true,
+          "legendFormat":"__auto",
+          "range":false,
+          "refId":"A"
+        },
+        {
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "exemplar":false,
+          "expr":"max(maas_net_subnet_ip_count{maas_id=\"$maas_id\",status=\"unavailable\"}) by(cidr)",
+          "format":"table",
+          "instant":true,
+          "legendFormat":"__auto",
+          "range":false,
+          "refId":"B"
+        }
+      ],
+      "title":"IPs availability per subnet",
+      "transformations":[
+        {
+          "id":"merge",
+          "options":{
+            
+          }
+        },
+        {
+          "id":"sortBy",
+          "options":{
+            "fields":{
+              
+            },
+            "sort":[
+              {
+                "field":"cidr"
+              }
+            ]
+          }
+        }
+      ],
+      "type":"table"
+    },
+    {
+      "collapsed":false,
+      "gridPos":{
+        "h":1,
+        "w":24,
+        "x":0,
+        "y":137
+      },
+      "id":22,
+      "panels":[
+        
+      ],
+      "title":"KVM",
+      "type":"row"
+    },
+    {
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
+          },
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
+            },
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
+            },
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
+            },
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "mappings": []
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 87
-      },
-      "id": 21,
-      "options": {
-        "displayLabels": [],
-        "legend": {
-          "calcs": [],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "values": [
-            "value"
-          ]
-        },
-        "orientation": "auto",
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "asc"
-        }
-      },
-      "repeatDirection": "h",
-      "targets": [
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_subnet_ip_count{cidr=\"$cidr\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"available\"})",
-          "legendFormat": "Available",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "max(maas_net_subnet_ip_count{cidr=\"$cidr\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"unavailable\"})",
-          "legendFormat": "Unavailable",
-          "range": true,
-          "refId": "B"
-        }
-      ],
-      "title": "IPs availability (subnet: $cidr)",
-      "type": "piechart"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 92
-      },
-      "id": 22,
-      "panels": [],
-      "title": "KVM",
-      "type": "row"
-    },
-    {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "decimals":0,
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           }
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 93
+      "gridPos":{
+        "h":9,
+        "w":12,
+        "x":0,
+        "y":138
       },
-      "id": 23,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":23,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "asc"
+        "tooltip":{
+          "mode":"single",
+          "sort":"asc"
         }
       },
-      "repeatDirection": "h",
-      "targets": [
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "avg by(status) (maas_kvm_cores{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "{{status}}",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"(avg( sum without(pid,juju_unit)(maas_kvm_cores{maas_id=\"$maas_id\"})) by (status))",
+          "legendFormat":"{{status}}",
+          "range":true,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "expr": "avg(maas_kvm_overcommit_cores{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "available with vercommit",
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"(avg( sum without(pid,juju_unit)(maas_kvm_overcommit_cores{maas_id=\"$maas_id\"})) by (status))",
+          "legendFormat":"available with vercommit",
+          "range":true,
+          "refId":"B"
         }
       ],
-      "title": "Cores",
-      "type": "timeseries"
+      "title":"Cores",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "decimals":0,
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "decmbytes"
+          "unit":"decmbytes"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 93
+      "gridPos":{
+        "h":9,
+        "w":12,
+        "x":12,
+        "y":138
       },
-      "id": 24,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":24,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "asc"
+        "tooltip":{
+          "mode":"single",
+          "sort":"asc"
         }
       },
-      "repeatDirection": "h",
-      "targets": [
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "avg by(status) (maas_kvm_memory{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"(avg(sum without(pid,juju_unit)(maas_kvm_memory{maas_id=\"$maas_id\"})) by (status))",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         },
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "avg(maas_kvm_overcommit_memory{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "hide": false,
-          "legendFormat": "available with overcommit",
-          "range": true,
-          "refId": "B"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"(avg(sum without(pid,juju_unit)(maas_kvm_overcommit_memory{maas_id=\"$maas_id\"})) by (status))",
+          "hide":false,
+          "legendFormat":"available with overcommit",
+          "range":true,
+          "refId":"B"
         }
       ],
-      "title": "Memory",
-      "type": "timeseries"
+      "title":"Memory",
+      "type":"timeseries"
     },
     {
-      "datasource": "${prometheusds}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+      "datasource":{
+        "type":"prometheus",
+        "uid":"${prometheusds}"
+      },
+      "fieldConfig":{
+        "defaults":{
+          "color":{
+            "mode":"palette-classic"
           },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
+          "custom":{
+            "axisCenteredZero":false,
+            "axisColorMode":"text",
+            "axisLabel":"",
+            "axisPlacement":"auto",
+            "barAlignment":0,
+            "drawStyle":"line",
+            "fillOpacity":0,
+            "gradientMode":"none",
+            "hideFrom":{
+              "legend":false,
+              "tooltip":false,
+              "viz":false
             },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
+            "lineInterpolation":"linear",
+            "lineWidth":1,
+            "pointSize":5,
+            "scaleDistribution":{
+              "type":"linear"
             },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
+            "showPoints":"auto",
+            "spanNulls":false,
+            "stacking":{
+              "group":"A",
+              "mode":"none"
             },
-            "thresholdsStyle": {
-              "mode": "off"
+            "thresholdsStyle":{
+              "mode":"off"
             }
           },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "decimals":0,
+          "mappings":[
+            
+          ],
+          "thresholds":{
+            "mode":"absolute",
+            "steps":[
               {
-                "color": "green"
+                "color":"green"
               },
               {
-                "color": "red",
-                "value": 80
+                "color":"red",
+                "value":80
               }
             ]
           },
-          "unit": "decbytes"
+          "unit":"decbytes"
         },
-        "overrides": []
+        "overrides":[
+          
+        ]
       },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 102
+      "gridPos":{
+        "h":9,
+        "w":12,
+        "x":0,
+        "y":147
       },
-      "id": 25,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+      "id":25,
+      "options":{
+        "legend":{
+          "calcs":[
+            
+          ],
+          "displayMode":"list",
+          "placement":"bottom",
+          "showLegend":true
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "asc"
+        "tooltip":{
+          "mode":"single",
+          "sort":"asc"
         }
       },
-      "repeatDirection": "h",
-      "targets": [
+      "repeatDirection":"h",
+      "targets":[
         {
-          "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "avg by(status) (maas_kvm_storage{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
+          "datasource":{
+            "type":"prometheus",
+            "uid":"${prometheusds}"
+          },
+          "editorMode":"code",
+          "expr":"(avg( sum without(pid,juju_unit)(maas_kvm_storage{maas_id=\"$maas_id\"})) by (status))",
+          "legendFormat":"__auto",
+          "range":true,
+          "refId":"A"
         }
       ],
-      "title": "Storage",
-      "type": "timeseries"
+      "title":"Storage",
+      "type":"timeseries"
     }
   ],
-  "refresh": "30s",
-  "schemaVersion": 38,
-  "style": "dark",
-  "tags": [],
-  "templating": {
-    "list": [
+  "refresh":"30s",
+  "schemaVersion":37,
+  "style":"dark",
+  "tags":[
+    
+  ],
+  "templating":{
+    "list":[
       {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+        "current":{
+          "selected":false,
+          "text":"c989b8bc-5212-4a3e-a6fe-b10336b951a1",
+          "value":"c989b8bc-5212-4a3e-a6fe-b10336b951a1"
         },
-        "hide": 0,
-        "includeAll": true,
-        "label": "Loki datasource",
-        "multi": true,
-        "name": "lokids",
-        "options": [],
-        "query": "loki",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
+        "datasource":{
+          "type":"prometheus",
+          "uid":"${prometheusds}"
+        },
+        "definition":"label_values(maas_id)",
+        "hide":0,
+        "includeAll":false,
+        "label":"MAAS ID",
+        "multi":false,
+        "name":"maas_id",
+        "options":[
+          
+        ],
+        "query":{
+          "qryType":1,
+          "query":"label_values(maas_id)",
+          "refId":"PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh":1,
+        "regex":"",
+        "skipUrlSync":false,
+        "sort":0,
+        "type":"query"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+        "current":{
+          "selected":true,
+          "text":[
+            "10.176.2.2",
+            "10.176.2.3",
+            "10.176.2.4"
+          ],
+          "value":[
+            "10.176.2.2",
+            "10.176.2.3",
+            "10.176.2.4"
+          ]
         },
-        "hide": 0,
-        "includeAll": true,
-        "label": "Prometheus datasource",
-        "multi": true,
-        "name": "prometheusds",
-        "options": [],
-        "query": "prometheus",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
+        "datasource":{
+          "type":"prometheus",
+          "uid":"${prometheusds}"
+        },
+        "definition":"label_values(host)",
+        "hide":0,
+        "includeAll":true,
+        "multi":true,
+        "name":"node",
+        "options":[
+          
+        ],
+        "query":{
+          "query":"label_values(host)",
+          "refId":"PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh":1,
+        "regex":"^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$",
+        "skipUrlSync":false,
+        "sort":1,
+        "type":"query"
       },
       {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+        "current":{
+          "selected":false,
+          "text":"All",
+          "value":"$__all"
         },
-        "datasource": {
-          "uid": "${prometheusds}"
+        "datasource":{
+          "type":"prometheus",
+          "uid":"${prometheusds}"
         },
-        "definition": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_application=~\"$juju_application\"},juju_unit)",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Juju unit",
-        "multi": true,
-        "name": "juju_unit",
-        "options": [],
-        "query": {
-          "query": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_application=~\"$juju_application\"},juju_unit)",
-          "refId": "StandardVariableQuery"
+        "definition":"label_values(system_id)",
+        "hide":0,
+        "includeAll":true,
+        "multi":false,
+        "name":"racks",
+        "options":[
+          
+        ],
+        "query":{
+          "query":"label_values(system_id)",
+          "refId":"StandardVariableQuery"
         },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
+        "refresh":1,
+        "regex":"",
+        "skipUrlSync":false,
+        "sort":0,
+        "type":"query"
       },
       {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+        "current":{
+          "selected":false,
+          "text":"10.239.7.136",
+          "value":"10.239.7.136"
         },
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\"},juju_application)",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Juju application",
-        "multi": true,
-        "name": "juju_application",
-        "options": [],
-        "query": {
-          "query": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\"},juju_application)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(up{juju_model=~\"$juju_model\"},juju_model_uuid)",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Juju model uuid",
-        "multi": true,
-        "name": "juju_model_uuid",
-        "options": [],
-        "query": {
-          "query": "label_values(up{juju_model=~\"$juju_model\"},juju_model_uuid)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(up,juju_model)",
-        "hide": 0,
-        "includeAll": true,
-        "label": "Juju model",
-        "multi": true,
-        "name": "juju_model",
-        "options": [],
-        "query": {
-          "query": "label_values(up,juju_model)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "current": {},
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(maas_id)",
-        "hide": 0,
-        "includeAll": false,
-        "label": "MAAS ID",
-        "multi": false,
-        "name": "maas_id",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(maas_id)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "10.0.0.0/24",
-          "value": "10.0.0.0/24"
-        },
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(cidr)",
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "cidr",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(cidr)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "^[0-9]{2,3}\\..*",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {},
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(host)",
-        "hide": 0,
-        "includeAll": true,
-        "multi": true,
-        "name": "node",
-        "options": [],
-        "query": {
-          "query": "label_values(host)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$",
-        "skipUrlSync": false,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "uid": "${prometheusds}"
-        },
-        "definition": "label_values(system_id)",
-        "hide": 0,
-        "includeAll": true,
-        "multi": false,
-        "name": "racks",
-        "options": [],
-        "query": {
-          "query": "label_values(system_id)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "127.0.0.1",
-          "value": "127.0.0.1"
-        },
-        "description": "",
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "maas_vip",
-        "options": [
+        "description":"",
+        "hide":0,
+        "includeAll":false,
+        "multi":false,
+        "name":"maas_vip",
+        "options":[
           {
-            "selected": true,
-            "text": "127.0.0.1",
-            "value": "127.0.0.1"
+            "selected":true,
+            "text":"127.0.0.1",
+            "value":"127.0.0.1"
           }
         ],
-        "query": "127.0.0.1",
-        "queryValue": "127.0.0.1",
-        "skipUrlSync": false,
-        "type": "custom"
+        "query":"127.0.0.1",
+        "queryValue":"10.239.7.136",
+        "skipUrlSync":false,
+        "type":"custom"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "400",
-          "value": "400"
+        "current":{
+          "selected":false,
+          "text":"404",
+          "value":"404"
         },
-        "hide": 2,
-        "includeAll": false,
-        "multi": false,
-        "name": "status_code",
-        "options": [
+        "hide":2,
+        "includeAll":false,
+        "multi":false,
+        "name":"status_code",
+        "options":[
           {
-            "selected": true,
-            "text": "400",
-            "value": "400"
+            "selected":false,
+            "text":"400",
+            "value":"400"
           },
           {
-            "selected": false,
-            "text": "401",
-            "value": "401"
+            "selected":false,
+            "text":"401",
+            "value":"401"
           },
           {
-            "selected": false,
-            "text": "403",
-            "value": "403"
+            "selected":false,
+            "text":"403",
+            "value":"403"
           },
           {
-            "selected": false,
-            "text": "404",
-            "value": "404"
+            "selected":true,
+            "text":"404",
+            "value":"404"
           },
           {
-            "selected": false,
-            "text": "409",
-            "value": "409"
+            "selected":false,
+            "text":"409",
+            "value":"409"
           },
           {
-            "selected": false,
-            "text": "500",
-            "value": "500"
+            "selected":false,
+            "text":"500",
+            "value":"500"
           },
           {
-            "selected": false,
-            "text": "501",
-            "value": "501"
+            "selected":false,
+            "text":"501",
+            "value":"501"
           },
           {
-            "selected": false,
-            "text": "503",
-            "value": "503"
+            "selected":false,
+            "text":"503",
+            "value":"503"
           }
         ],
-        "query": "400,401,403,404,409,500,501,503",
-        "skipUrlSync": false,
-        "type": "custom"
+        "query":"400,401,403,404,409,500,501,503",
+        "skipUrlSync":false,
+        "type":"custom"
+      },
+      {
+        "datasource":{
+          "type":"prometheus",
+          "uid":"${prometheusds}"
+        },
+        "filters":[
+          
+        ],
+        "hide":0,
+        "name":"Filters",
+        "skipUrlSync":false,
+        "type":"adhoc"
       }
     ]
   },
-  "time": {
-    "from": "now-6h",
-    "to": "now"
+  "time":{
+    "from":"now-6h",
+    "to":"now"
   },
-  "timepicker": {},
-  "timezone": "browser",
-  "title": "MAAS Stats",
-  "uid": "maas-stats",
-  "version": 1,
-  "weekStart": ""
+  "timepicker":{
+    
+  },
+  "timezone":"browser",
+  "title":"MAAS Stats",
+  "uid":"maas-stats",
+  "version":57,
+  "weekStart":""
 }
