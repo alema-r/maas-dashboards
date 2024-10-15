@@ -229,10 +229,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "description": "Show the rack services that are in a {Off, Dead, Unknown} status.\nServices that are in an \"ON\" status are not shown.",
       "fieldConfig": {
         "defaults": {
@@ -511,10 +508,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2507,10 +2501,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -2649,10 +2640,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2748,10 +2736,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2849,10 +2834,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${prometheusds}"
-      },
+      "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2976,10 +2958,7 @@
         "type": "datasource"
       },
       {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${prometheusds}"
-        },
+        "datasource": "${prometheusds}",
         "definition": "label_values(maas_id)",
         "hide": 0,
         "includeAll": false,
@@ -3012,10 +2991,7 @@
             "10.176.2.4"
           ]
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${prometheusds}"
-        },
+        "datasource": "${prometheusds}",
         "definition": "label_values(host)",
         "hide": 0,
         "includeAll": true,
@@ -3038,10 +3014,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${prometheusds}"
-        },
+        "datasource": "${prometheusds}",
         "definition": "label_values(system_id)",
         "hide": 0,
         "includeAll": true,
