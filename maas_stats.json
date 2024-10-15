@@ -3236,7 +3236,7 @@
         "query": "400,401,403,404,409,500,501,503",
         "skipUrlSync": false,
         "type": "custom"
-      },
+      }
     ]
   },
   "time": {
