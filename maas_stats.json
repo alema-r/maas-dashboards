@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 24,
+  "id": 124,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -84,13 +84,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"regionracks\"})",
+          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"regionracks\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -142,13 +142,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"regions\"})",
+          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"regions\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -200,13 +200,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"racks\"})",
+          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"racks\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -318,7 +318,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeat": "racks",
       "repeatDirection": "h",
       "targets": [
@@ -326,7 +326,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "topk by(service, system_id) (1, sort_desc(maas_service_availability{maas_id=\"$maas_id\", system_id=\"$racks\", pid=\"\"})) != 1 != 4",
+          "expr": "topk by(service, system_id) (1, sort_desc(maas_service_availability{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",pid=\"\",system_id=\"$racks\"}) != 1)",
           "format": "heatmap",
           "instant": true,
           "legendFormat": "{{service}}",
@@ -399,12 +399,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "100*((sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval])) - sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\", state=\"idle\"}[$__rate_interval])))) / sum(rate(maas_node_cpu_time_total{maas_id=\"$maas_id\",host=\"${node:raw}\"}[$__rate_interval]))",
+          "expr": "100 * ((sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) - sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",state=\"idle\"}[$__rate_interval])))) / sum(rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
           "legendFormat": "cpu usage",
           "range": true,
           "refId": "A"
@@ -494,7 +494,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "rate(maas_node_cpu_time_total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__rate_interval])",
+          "expr": "rate(maas_node_cpu_time_total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__rate_interval])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -554,12 +554,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum without(pid) (1 - (\n    (\n        last_over_time(maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval]) +\n        maas_node_mem_Cached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}\n    )\n    /last_over_time(maas_node_mem_MemTotal{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}[$__interval]))\n    )",
+          "expr": "sum without(pid) (1 - ((last_over_time(maas_node_mem_MemFree{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__interval]) + maas_node_mem_Cached{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} ) / last_over_time(maas_node_mem_MemTotal{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}[$__interval])))",
           "legendFormat": "RAM Usage",
           "range": true,
           "refId": "A"
@@ -802,7 +802,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Buffers{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_Buffers{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -820,7 +820,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_SwapCached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_SwapCached{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -838,7 +838,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Slab{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_Slab{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -856,7 +856,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_PageTables{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_PageTables{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -874,7 +874,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_AnonPages{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_AnonPages{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -891,7 +891,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_Shmem{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -908,7 +908,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_Cached{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_Shmem{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_Cached{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} - maas_node_mem_Shmem{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -923,7 +923,7 @@
           "datasource": "${prometheusds}",
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_MemFree{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})",
+          "expr": "sum without(pid) (maas_node_mem_MemFree{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})",
           "format": "time_series",
           "fullMetaSearch": false,
           "hide": false,
@@ -940,7 +940,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum without(pid) ((maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}-maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})*2048)",
+          "expr": "sum without(pid) ((maas_node_mem_HugePages_Free{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} - maas_node_mem_HugePages_Rsvd{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}) * 2048)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -954,7 +954,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum without(pid) (maas_node_mem_HugePages_Rsvd{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}*2048)",
+          "expr": "sum without(pid) (maas_node_mem_HugePages_Rsvd{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"} * 2048)",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -967,7 +967,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum without(pid) ((sum(maas_node_mem_HugePages_Total{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"})-sum(maas_node_mem_HugePages_Free{maas_id=\"$maas_id\", host=\"${node:raw}\", service_type=\"region\"}))*2048)",
+          "expr": "sum without(pid) ((sum(maas_node_mem_HugePages_Total{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"}) - sum(maas_node_mem_HugePages_Free{host=\"${node:raw}\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",service_type=\"region\"})) * 2048)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -988,7 +988,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 91
+        "y": 34
       },
       "id": 77,
       "panels": [],
@@ -1055,7 +1055,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 92
+        "y": 35
       },
       "id": 90,
       "options": {
@@ -1074,7 +1074,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_rack_region_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1090,7 +1090,9 @@
         "defaults": {
           "custom": {
             "align": "auto",
-            "displayMode": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
             "filterable": false,
             "inspect": false
           },
@@ -1187,7 +1189,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 92
+        "y": 35
       },
       "id": 103,
       "options": {
@@ -1209,13 +1211,13 @@
           }
         ]
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (call) (rate(maas_rack_region_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by (call) (rate(maas_rack_region_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "expr": "sum by(call) (rate(maas_rack_region_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_rack_region_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -1227,7 +1229,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
+          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_rack_region_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -1239,7 +1241,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.0001, sum by(call, le) (rate(maas_rack_region_rpc_call_latency_bucket[$__rate_interval])))",
+          "expr": "histogram_quantile(0.0001, sum by(call, le) (rate(maas_rack_region_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -1329,7 +1331,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 100
+        "y": 43
       },
       "id": 89,
       "options": {
@@ -1348,7 +1350,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "sum(rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) by(call) / \nsum(rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval])) by(call)",
+          "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_region_rack_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1363,7 +1365,9 @@
         "defaults": {
           "custom": {
             "align": "auto",
-            "displayMode": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
             "filterable": false,
             "inspect": false
           },
@@ -1460,7 +1464,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 100
+        "y": 43
       },
       "id": 104,
       "options": {
@@ -1476,13 +1480,13 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{maas_id=\"$maas_id\"}[$__rate_interval])) /\nsum by(call) (rate(maas_region_rack_rpc_call_latency_count{maas_id=\"$maas_id\"}[$__rate_interval]))",
+          "expr": "sum by(call) (rate(maas_region_rack_rpc_call_latency_sum{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])) / sum by(call) (rate(maas_region_rack_rpc_call_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval]))",
           "format": "table",
           "instant": true,
           "legendFormat": "avg",
@@ -1493,7 +1497,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
+          "expr": "histogram_quantile(1, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -1505,7 +1509,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "histogram_quantile(0.0001, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket[$__rate_interval])))",
+          "expr": "histogram_quantile(0.0001, sum by(le, call) (rate(maas_region_rack_rpc_call_latency_bucket{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\"}[$__rate_interval])))",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -1529,7 +1533,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 108
+        "y": 51
       },
       "id": 105,
       "panels": [],
@@ -1596,7 +1600,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 109
+        "y": 52
       },
       "id": 117,
       "options": {
@@ -1615,7 +1619,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "histogram_quantile(0.9, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.9, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "legendFormat": "p90",
           "range": true,
           "refId": "A"
@@ -1623,7 +1627,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.95, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -1632,7 +1636,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{maas_id=\"$maas_id\", handler=\"/api/v2/machines\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.99, sum by(le, handler) (rate(maas_apiserver_request_latency_bucket{handler=\"/api/v2/machines\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -1702,7 +1706,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 109
+        "y": 52
       },
       "id": 119,
       "options": {
@@ -1721,7 +1725,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.9, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.9, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "legendFormat": "p90",
           "range": true,
           "refId": "A"
@@ -1729,7 +1733,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.95, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.95, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -1738,7 +1742,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, sum by(le, call) (rate(maas_websocket_call_latency_bucket{maas_id=\"$maas_id\", call=\"machine.list\"}[$__rate_interval])))",
+          "expr": "histogram_quantile(0.99, sum by(le, call) (rate(maas_websocket_call_latency_bucket{call=\"machine.list\",juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}[$__rate_interval])))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -1785,7 +1789,7 @@
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 117
+        "y": 60
       },
       "id": 133,
       "options": {
@@ -1805,13 +1809,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(status) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
+          "expr": "sum by(status) (round(increase(maas_http_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -1822,7 +1826,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(status) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
+          "expr": "sum by(status) (round(increase(maas_apiserver_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=~\"[4,5][0-9]{2}\"}[30m]), 1))",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -1870,7 +1874,7 @@
         "h": 6,
         "w": 24,
         "x": 0,
-        "y": 122
+        "y": 65
       },
       "id": 135,
       "options": {
@@ -1887,13 +1891,13 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(method, path) (round(increase(maas_http_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1)) ",
+          "expr": "sum by(method, path) (round(increase(maas_http_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"$status_code\"}[30m]) > 0, 1))",
           "hide": false,
           "instant": true,
           "legendFormat": "{{method}} {{path}}",
@@ -1904,7 +1908,7 @@
           "datasource": "${prometheusds}",
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(method, handler) (round(increase(maas_apiserver_request_latency_count{maas_id=\"$maas_id\", status=\"$status_code\"}[30m]) > 0, 1))",
+          "expr": "sum by(method, handler) (round(increase(maas_apiserver_request_latency_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",status=\"$status_code\"}[30m]) > 0, 1))",
           "hide": false,
           "instant": true,
           "legendFormat": "{{method}} {{handler}}",
@@ -1930,7 +1934,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 128
+        "y": 71
       },
       "id": 5,
       "panels": [],
@@ -1959,7 +1963,7 @@
         "h": 5,
         "w": 5,
         "x": 0,
-        "y": 129
+        "y": 72
       },
       "id": 12,
       "options": {
@@ -1976,7 +1980,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
@@ -1993,7 +1997,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_kvm_machines{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_kvm_machines{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "hide": false,
           "legendFormat": "Virtual",
           "range": true,
@@ -2002,7 +2006,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"machines\"})",
+          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"machines\"})",
           "legendFormat": "Total",
           "range": true,
           "refId": "B"
@@ -2032,7 +2036,7 @@
         "h": 5,
         "w": 5,
         "x": 5,
-        "y": 129
+        "y": 72
       },
       "id": 11,
       "options": {
@@ -2050,13 +2054,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_nodes{maas_id=\"$maas_id\",type=\"devices\"})",
+          "expr": "max(maas_nodes{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\",type=\"devices\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2090,7 +2094,7 @@
         "h": 5,
         "w": 5,
         "x": 10,
-        "y": 129
+        "y": 72
       },
       "id": 9,
       "options": {
@@ -2108,13 +2112,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_kvm_pods{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_kvm_pods{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2181,7 +2185,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 134
+        "y": 77
       },
       "id": 14,
       "options": {
@@ -2201,7 +2205,7 @@
       "repeatDirection": "h",
       "targets": [
         {
-          "expr": "max(maas_machines{maas_id=\"$maas_id\"}) by (status)",
+          "expr": "max by(status) (maas_machines{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "{{status}}",
           "refId": "A"
         }
@@ -2215,7 +2219,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 143
+        "y": 86
       },
       "id": 15,
       "panels": [],
@@ -2247,7 +2251,7 @@
         "h": 5,
         "w": 4,
         "x": 0,
-        "y": 144
+        "y": 87
       },
       "id": 16,
       "options": {
@@ -2265,13 +2269,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_net_spaces{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_net_spaces{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2301,7 +2305,7 @@
         "h": 5,
         "w": 4,
         "x": 4,
-        "y": 144
+        "y": 87
       },
       "id": 17,
       "options": {
@@ -2319,13 +2323,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_net_fabrics{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_net_fabrics{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2355,7 +2359,7 @@
         "h": 5,
         "w": 4,
         "x": 8,
-        "y": 144
+        "y": 87
       },
       "id": 18,
       "options": {
@@ -2373,13 +2377,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_net_vlans{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_net_vlans{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2409,7 +2413,7 @@
         "h": 5,
         "w": 4,
         "x": 12,
-        "y": 144
+        "y": 87
       },
       "id": 19,
       "options": {
@@ -2427,13 +2431,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_net_subnets_v4{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_net_subnets_v4{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2467,7 +2471,7 @@
         "h": 5,
         "w": 4,
         "x": 16,
-        "y": 144
+        "y": 87
       },
       "id": 20,
       "options": {
@@ -2485,13 +2489,13 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "max(maas_net_subnets_v6{maas_id=\"$maas_id\"})",
+          "expr": "max(maas_net_subnets_v6{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2504,25 +2508,17 @@
       "datasource": "${prometheusds}",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": "auto",
-            "displayMode": "auto",
-            "inspect": false
+          "color": {
+            "mode": "palette-classic"
           },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
         },
         "overrides": [
           {
@@ -2564,10 +2560,10 @@
         ]
       },
       "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 0,
-        "y": 149
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 87
       },
       "id": 21,
       "options": {
@@ -2580,14 +2576,13 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "9.2.1",
+      "pluginVersion": "9.5.3",
       "repeatDirection": "h",
       "targets": [
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(maas_net_subnet_ip_count{maas_id=\"$maas_id\",status=\"available\"}) by(cidr)",
+          "expr": "max(maas_net_subnet_ip_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}) by(cidr)",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -2597,8 +2592,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "max(maas_net_subnet_ip_count{maas_id=\"$maas_id\",status=\"unavailable\"}) by(cidr)",
+          "expr": "max(maas_net_subnet_ip_count{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"}) by(cidr)",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -2632,7 +2626,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 156
+        "y": 92
       },
       "id": 22,
       "panels": [],
@@ -2698,7 +2692,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 157
+        "y": 93
       },
       "id": 23,
       "options": {
@@ -2709,7 +2703,7 @@
           "showLegend": true
         },
         "tooltip": {
-          "mode": "multi",
+          "mode": "single",
           "sort": "asc"
         }
       },
@@ -2718,17 +2712,15 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "(avg( sum without(pid)(maas_kvm_cores{maas_id=\"$maas_id\"})) by (status))",
+          "expr": "avg by(status) (maas_kvm_cores{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "{{status}}",
           "range": true,
           "refId": "A"
         },
         {
           "datasource": "${prometheusds}",
-          "editorMode": "code",
-          "expr": "(avg( sum without(pid)(maas_kvm_overcommit_cores{maas_id=\"$maas_id\"})) by (status))",
+          "expr": "avg(maas_kvm_overcommit_cores{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "available with vercommit",
-          "range": true,
           "refId": "B"
         }
       ],
@@ -2795,7 +2787,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 157
+        "y": 93
       },
       "id": 24,
       "options": {
@@ -2815,7 +2807,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "(avg(sum without(pid)(maas_kvm_memory{maas_id=\"$maas_id\"})) by (status))",
+          "expr": "avg by(status) (maas_kvm_memory{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2823,7 +2815,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "(avg(sum without(pid)(maas_kvm_overcommit_memory{maas_id=\"$maas_id\"})) by (status))",
+          "expr": "avg(maas_kvm_overcommit_memory{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "hide": false,
           "legendFormat": "available with overcommit",
           "range": true,
@@ -2893,7 +2885,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 166
+        "y": 102
       },
       "id": 25,
       "options": {
@@ -2913,7 +2905,7 @@
         {
           "datasource": "${prometheusds}",
           "editorMode": "code",
-          "expr": "(avg( sum without(pid)(maas_kvm_storage{maas_id=\"$maas_id\"})) by (status))",
+          "expr": "avg by(status) (maas_kvm_storage{juju_application=~\"$juju_application\",juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_unit=~\"$juju_unit\",maas_id=\"$maas_id\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2924,13 +2916,192 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 37,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "datasource": "${prometheusds}",
+        "current": {
+          "selected": false,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "hide": 0,
+        "includeAll": true,
+        "label": "Loki datasource",
+        "multi": true,
+        "name": "lokids",
+        "options": [],
+        "query": "loki",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "hide": 0,
+        "includeAll": true,
+        "label": "Prometheus datasource",
+        "multi": true,
+        "name": "prometheusds",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "maas-region/3"
+          ],
+          "value": [
+            "maas-region/3"
+          ]
+        },
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
+        "definition": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_application=~\"$juju_application\"},juju_unit)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Juju unit",
+        "multi": true,
+        "name": "juju_unit",
+        "options": [],
+        "query": {
+          "query": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\",juju_application=~\"$juju_application\"},juju_unit)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
+        "definition": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\"},juju_application)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Juju application",
+        "multi": true,
+        "name": "juju_application",
+        "options": [],
+        "query": {
+          "query": "label_values(up{juju_model=~\"$juju_model\",juju_model_uuid=~\"$juju_model_uuid\"},juju_application)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
+        "definition": "label_values(up{juju_model=~\"$juju_model\"},juju_model_uuid)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Juju model uuid",
+        "multi": true,
+        "name": "juju_model_uuid",
+        "options": [],
+        "query": {
+          "query": "label_values(up{juju_model=~\"$juju_model\"},juju_model_uuid)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": false,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
+        "definition": "label_values(up,juju_model)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Juju model",
+        "multi": true,
+        "name": "juju_model",
+        "options": [],
+        "query": {
+          "query": "label_values(up,juju_model)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
         "definition": "label_values(maas_id)",
         "hide": 0,
         "includeAll": false,
@@ -2959,7 +3130,9 @@
             "$__all"
           ]
         },
-        "datasource": "${prometheusds}",
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
         "definition": "label_values(host)",
         "hide": 0,
         "includeAll": true,
@@ -2978,11 +3151,13 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "${prometheusds}",
+        "datasource": {
+          "uid": "${prometheusds}"
+        },
         "definition": "label_values(system_id)",
         "hide": 0,
         "includeAll": true,
@@ -3000,6 +3175,11 @@
         "type": "query"
       },
       {
+        "current": {
+          "selected": false,
+          "text": "127.0.0.1",
+          "value": "127.0.0.1"
+        },
         "description": "",
         "hide": 0,
         "includeAll": false,
@@ -3013,15 +3193,15 @@
           }
         ],
         "query": "127.0.0.1",
-        "queryValue": "",
+        "queryValue": "127.0.0.1",
         "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
           "selected": false,
-          "text": "404",
-          "value": "404"
+          "text": "400",
+          "value": "400"
         },
         "hide": 2,
         "includeAll": false,
@@ -3029,7 +3209,7 @@
         "name": "status_code",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "400",
             "value": "400"
           },
@@ -3044,7 +3224,7 @@
             "value": "403"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "404",
             "value": "404"
           },
@@ -3072,14 +3252,6 @@
         "query": "400,401,403,404,409,500,501,503",
         "skipUrlSync": false,
         "type": "custom"
-      },
-      {
-        "datasource": "${prometheusds}",
-        "filters": [],
-        "hide": 0,
-        "name": "Filters",
-        "skipUrlSync": false,
-        "type": "adhoc"
       }
     ]
   },
@@ -3091,6 +3263,6 @@
   "timezone": "browser",
   "title": "MAAS Stats",
   "uid": "maas-stats",
-  "version": 60,
+  "version": 1,
   "weekStart": ""
 }
